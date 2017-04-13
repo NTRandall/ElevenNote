@@ -102,6 +102,23 @@ namespace ElevenNote.Web.Controllers
             return View(model);
         }
 
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateNoteService();
+
+            //TODO Handle Something Something Navy Seals.
+
+            service.DeleteNote(id);
+
+            TempData["SaveResult"] = "Your not was deleted!";
+
+            return RedirectToAction("Index");
+        }
+
         private NoteService CreateNoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
