@@ -30,7 +30,7 @@ namespace ElevenNote.Web.Controllers.WebAPI
                     NoteId = detail.NoteId,
                     Title = detail.Title,
                     Content = detail.Content,
-                    IsStarred = newState
+                    IsStarred = detail.IsStarred
                     
                 };
 
@@ -38,12 +38,12 @@ namespace ElevenNote.Web.Controllers.WebAPI
             return service.UpdateNote(updatedNote);
         }
 
-        [Route("{id/Star")]
+        [Route("{id}/Star")]
         [HttpPut]
         public bool ToggleStarOn(int id) => SetStarState(id, true);
 
 
-        [Route("{id/Star")]
+        [Route("{id}/Star")]
         [HttpDelete]
         public bool ToggleStarOff(int id) => SetStarState(id, false);
 

@@ -11,8 +11,7 @@ namespace ElevenNote.Web
     {
         public static void Register()
         {
-            //TODO: Research serialization
-            System.Web.Http.GlobalConfiguration
+            GlobalConfiguration
                 .Configure(
                     x =>
                     {
