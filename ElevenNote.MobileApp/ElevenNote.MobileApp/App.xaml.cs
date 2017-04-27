@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using ElevenNote.MobileApp.ExternalServices;
 using Xamarin.Forms;
 
 namespace ElevenNote.MobileApp
 {
 	public partial class App : Application
 	{
+        internal static readonly NoteService NoteService = new NoteService();
+
 		public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new ElevenNote.MobileApp.MainPage();
+			MainPage = new NavigationPage(new LoginPage());
 		}
 
 		protected override void OnStart ()
